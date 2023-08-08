@@ -16,21 +16,49 @@
             } else if (computerChoice > 0.3 && computerChoice < 0.6) {
                 result = "Paper"
                 return result;
-            } else if (computerChoice > 0.6 && computerChoice < 0.9) {
+            } else if (computerChoice > 0.6 && computerChoice < 1) {
                 result = "Scissors"
                 return result;
             }
         }
 
-        function gameRPS(string) {
-            let playerSelection = string
+        function playRound (playerSelection, computerSelection) {
+            let player = playerSelection;
             let stringFirstLetter = playerSelection.charAt(0)
             let stringSlice = playerSelection.slice(1)
             let stringUpperCase = stringFirstLetter.toUpperCase()
             let stringLowerCase = stringSlice.toLowerCase()
-            let result = stringUpperCase + stringLowerCase
-            return result;
-        }     
+            let playerResult = stringUpperCase + stringLowerCase
+            let finalResult = playerResult + " " + computerSelection
+            console.log(finalResult)
+            
+            if (finalResult == "Rock Paper") { 
+                let winner = "You lose! Paper beats Rock"
+                return winner;
+            } else if (finalResult == "Paper Rock") {
+                let winner = "You win! Paper beats Rock"
+                return winner;
+            } else if (finalResult == "Scissors Paper") {
+                let winner = "You win! Scissors beat Paper"
+                return winner;
+            } else if (finalResult == "Papper Scissors") {
+                let winner = "You lose! Scissors beat Paper"
+            } else if (finalResult == "Rock Scissors") {
+                let winner = "You win! Rock beats Scissors"
+                return winner;
+            } else if (finalResult == "Scissors Paper") {
+                let winner = "You win! Scissors beats Paper"
+                return winner;
+            } else if (finalResult == "Paper Scissors") {
+                let winner = "You lose! Scissors beats Paper"
+                return winner;
+            } else if (finalResult == "Scissors Rock") {
+                let winner = "You lose! Rock beats Scissors"
+            } else if (finalResult == "Rock Rock" || finalResult == "Paper Paper" || finalResult == "Scissors") {
+                let winner = "It's a tie!"
+                return winner;
+            }
+        }
     </script>
 </body>
 </html>
