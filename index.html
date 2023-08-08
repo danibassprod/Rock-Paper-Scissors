@@ -21,6 +21,16 @@
                 return result;
             }
         }
+
+        function gameRPS(string) {
+            let playerSelection = string
+            let stringFirstLetter = playerSelection.charAt(0)
+            let stringSlice = playerSelection.slice(1)
+            let stringUpperCase = stringFirstLetter.toUpperCase()
+            let stringLowerCase = stringSlice.toLowerCase()
+            let result = stringUpperCase + stringLowerCase
+            return result;
+        }     
     </script>
 </body>
 </html>
