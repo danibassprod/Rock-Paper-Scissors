@@ -33,48 +33,55 @@
             let stringLowerCase = stringSlice.toLowerCase()
             let playerResult = stringUpperCase + stringLowerCase
             let finalResult = playerResult + " " + computerSelection
-            // First word is the Player Choice, second one is computer choice
+            // First word is the player Choice, second one is computer choice
             if (finalResult === "Rock Scissors") {
-                winner = "Player " + finalResult;
-                console.log(winner);  
+                winner = "You win! Rock beats Scissors";
+                return winner;  
             } else if (finalResult === "Scissors Rock") {
-                winner = "Computer " + finalResult;
-                console.log(winner);
+                winner = "You lose! Rock beats Scissors";
+                return winner;;
             } else if (finalResult === "Rock Paper") {
-                winner = "Computer " + finalResult;
-                console.log(winner);
+                winner = "You lose! Paper beats Rock";
+                return winner;
             } else if (finalResult === "Paper Rock") {
-                winner = "Player " + finalResult;
-                console.log(winner);
+                winner = "You win! Paper beats Rock"
+                return winner;
             } else if (finalResult === "Scissors Paper") {
-                winner = "Player " + finalResult;
-                console.log(winner);  
+                winner = "You win! Scissors beats Paper";
+                return winner;  
             } else if (finalResult === "Paper Scissors") {
-                winner = "Computer " + finalResult;
-                console.log(winner);
-            } else if (finalResult === "Scissors Rock") {
-                winner = "Computer " + finalResult;
-                console.log(winner);
-            } else if (finalResult === "Rock Scissors") {
-                winner = "Player " + finalResult;
-                console.log(winner);
-            } else if (finalResult === "Paper Scissors") {
-                winner = "Computer " + finalResult;
-                console.log(winner);
-            } else if (finalResult === "Scissors Paper") {
-                winner = "Player " + finalResult;
-                console.log(winner);
-            } else if (finalResult === "Paper Rock") {
-                winner = "Player " + finalResult;
-                console.log(winner);
-            } else if (finalResult === "Rock Paper") {
-                winner = "Computer " + finalResult;
-                console.log(winner);
+                winner = "You lose! Scissors beats Paper"
+                return winner;
             } else {
                 winner = "Draw";
-                console.log(winner)
+                return winner;
             }
         }
+
+        function game(roundWinner) {
+            if (roundWinner === "You win! Rock beats Scissors" || roundWinner === "You win! Scissors beats Paper" || roundWinner === "You win! Paper beats Rock") {
+                playerScore = playerScore + 1;
+                console.log(winner)
+            } else if (roundWinner === "You lose! Rock beats Scissors" || roundWinner === "You lose! Paper beats Rock" || roundWinner === "You lose! Scissors beats Paper") {
+                computerScore = computerScore + 1;
+                console.log(winner)
+            } else if (roundWinner === "Draw") {
+                console.log("Draw!")
+            }
+
+            if ((playerScore === 3 && computerScore === 2) || (playerScore === 3 && computerScore === 1) || (playerScore === 3 && computerScore === 0)) {
+                console.log("Player beats Computer!")
+                playerScore = 0;
+                computerScore = 0;
+            } else if ((computerScore === 3 && playerScore === 2) || (computerScore === 3 && playerScore === 1) || (computerScore === 3 && playerScore === 0)) {
+                console.log("Computer beats Player!")
+                playerScore = 0;
+                computerScore = 0;
+            }
+            console.log(playerScore, computerScore)
+        }
+
+        game(playRound(prompt(), getComputerChoice()))
     </script>
 </body>
 </html>
