@@ -73,18 +73,14 @@
 
             if ((playerScore === 5 && computerScore === 4) || (playerScore === 5 && computerScore === 3) || (playerScore === 5 && computerScore === 2) || (playerScore === 5 && computerScore === 1) || (playerScore === 5 && computerScore === 0)) {
                 console.log("Player beats Computer!")
-                //console.log(playerScore, computerScore)
                 playerScore = 0;
                 computerScore = 0;
             } else if ((computerScore === 5 && playerScore === 4) || (computerScore === 5 && playerScore === 3) || (computerScore === 5 && playerScore === 2 || (computerScore === 5 && playerScore === 1) || (computerScore === 5 && playerScore === 0))) {
                 console.log("Computer beats Player!")
-                //console.log(playerScore, computerScore)
                 playerScore = 0;
                 computerScore = 0;
             }
-            //console.log(playerScore, computerScore)
         }
-
         game(playRound(prompt(), getComputerChoice()))
     </script>
 </body>
