@@ -7,6 +7,9 @@
 </head>
 <body>
     <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let winner
         function getComputerChoice() {
             let computerChoice = Math.random();
             let result
@@ -22,7 +25,7 @@
             }
         }
 
-        function playRound (playerSelection, computerSelection) {
+        function playRound(playerSelection, computerSelection) {
             let player = playerSelection;
             let stringFirstLetter = playerSelection.charAt(0)
             let stringSlice = playerSelection.slice(1)
@@ -30,33 +33,46 @@
             let stringLowerCase = stringSlice.toLowerCase()
             let playerResult = stringUpperCase + stringLowerCase
             let finalResult = playerResult + " " + computerSelection
-            console.log(finalResult)
-            
-            if (finalResult == "Rock Paper") { 
-                let winner = "You lose! Paper beats Rock"
-                return winner;
-            } else if (finalResult == "Paper Rock") {
-                let winner = "You win! Paper beats Rock"
-                return winner;
-            } else if (finalResult == "Scissors Paper") {
-                let winner = "You win! Scissors beat Paper"
-                return winner;
-            } else if (finalResult == "Papper Scissors") {
-                let winner = "You lose! Scissors beat Paper"
-            } else if (finalResult == "Rock Scissors") {
-                let winner = "You win! Rock beats Scissors"
-                return winner;
-            } else if (finalResult == "Scissors Paper") {
-                let winner = "You win! Scissors beats Paper"
-                return winner;
-            } else if (finalResult == "Paper Scissors") {
-                let winner = "You lose! Scissors beats Paper"
-                return winner;
-            } else if (finalResult == "Scissors Rock") {
-                let winner = "You lose! Rock beats Scissors"
-            } else if (finalResult == "Rock Rock" || finalResult == "Paper Paper" || finalResult == "Scissors") {
-                let winner = "It's a tie!"
-                return winner;
+            // First word is the Player Choice, second one is computer choice
+            if (finalResult === "Rock Scissors") {
+                winner = "Player " + finalResult;
+                console.log(winner);  
+            } else if (finalResult === "Scissors Rock") {
+                winner = "Computer " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Rock Paper") {
+                winner = "Computer " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Paper Rock") {
+                winner = "Player " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Scissors Paper") {
+                winner = "Player " + finalResult;
+                console.log(winner);  
+            } else if (finalResult === "Paper Scissors") {
+                winner = "Computer " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Scissors Rock") {
+                winner = "Computer " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Rock Scissors") {
+                winner = "Player " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Paper Scissors") {
+                winner = "Computer " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Scissors Paper") {
+                winner = "Player " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Paper Rock") {
+                winner = "Player " + finalResult;
+                console.log(winner);
+            } else if (finalResult === "Rock Paper") {
+                winner = "Computer " + finalResult;
+                console.log(winner);
+            } else {
+                winner = "Draw";
+                console.log(winner)
             }
         }
     </script>
