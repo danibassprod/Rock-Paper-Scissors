@@ -60,11 +60,11 @@
 
         function game(roundWinner) {
             if (roundWinner === "You win! Rock beats Scissors" || roundWinner === "You win! Scissors beats Paper" || roundWinner === "You win! Paper beats Rock") {
-                playerScore = playerScore + 1;
+                playerScore++
                 console.log(winner)
                 console.log(playerScore, computerScore)
             } else if (roundWinner === "You lose! Rock beats Scissors" || roundWinner === "You lose! Paper beats Rock" || roundWinner === "You lose! Scissors beats Paper") {
-                computerScore = computerScore + 1;
+                computerScore++
                 console.log(winner)
                 console.log(playerScore, computerScore)
             } else if (roundWinner === "Draw") {
