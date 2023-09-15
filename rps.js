@@ -7,25 +7,23 @@
             function getComputerChoice() {
             let computerChoice = Math.random();
             let result
-            if (computerChoice < 0.3) {
+            if (computerChoice < 0.35) {
                     result = "Rock"
                     return result;
-                } else if (computerChoice > 0.3 && computerChoice < 0.6) {
+                } else if (computerChoice > 0.35 && computerChoice < 0.65) {
                     result = "Paper"
                     return result;
-                } else if (computerChoice > 0.6 && computerChoice < 1) {
+                } else if (computerChoice > 0.65 && computerChoice < 1) {
                     result = "Scissors"
                     return result;
                 }
             }
 
-            let stringFirstLetter = playerSelection.charAt(0)
-            let stringSlice = playerSelection.slice(1)
-            let stringUpperCase = stringFirstLetter.toUpperCase()
-            let stringLowerCase = stringSlice.toLowerCase()
-            let playerResult = stringUpperCase + stringLowerCase
+            let stringFirstLetter = playerSelection.charAt(0).toUpperCase()
+            let stringSlice = playerSelection.slice(1).toLowerCase()
+            let playerResult = stringFirstLetter + stringSlice;
             let finalResult = playerResult + " " + getComputerChoice()
-            // First word is the player Choice, second one is computer choice
+            // First word represents the player choice, second one computer choice.
             if (finalResult === "Rock Scissors") {
                 winner = "You win! Rock beats Scissors";
                 return winner;  
@@ -49,11 +47,13 @@
                 return winner;
             }
         } 
-
+        
+        const divResults = document.querySelector('.winner')
         const btns = document.querySelectorAll('button')
+
         btns.forEach(btn => btn.addEventListener('click', function() {
-            let playerChoice = this.classList.value
-            console.log(playRound(playerChoice))
+            let playerChoice = this.classList.value;
+            divResults.textContent = playRound(playerChoice);
         }))
 
         function game(roundWinner) {
