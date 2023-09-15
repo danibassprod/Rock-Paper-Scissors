@@ -48,12 +48,15 @@
             }
         } 
         
-        const divResults = document.querySelector('.winner')
         const btns = document.querySelectorAll('button')
+        const divResults = document.querySelector('.winner')
+        divResults.textContent = 'Get Ready!'
+        const score = document.querySelector('.score')
+        score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`
 
         btns.forEach(btn => btn.addEventListener('click', function() {
             let playerChoice = this.classList.value;
-            divResults.textContent = playRound(playerChoice);
+            game(playRound(playerChoice));
         }))
 
         function game(roundWinner) {
@@ -62,27 +65,28 @@
             roundWinner === "You win! Paper beats Rock") {
 
                 playerScore++
-                console.log(winner)
-                console.log(playerScore, computerScore)
+                divResults.textContent = winner;
+                score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`
 
             } else if (roundWinner === "You lose! Rock beats Scissors" || 
             roundWinner === "You lose! Paper beats Rock" || 
             roundWinner === "You lose! Scissors beats Paper") {
 
                 computerScore++
-                console.log(winner)
-                console.log(playerScore, computerScore)
+                divResults.textContent = winner;
+                score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`
 
             } else if (roundWinner === "Draw") {
 
-                console.log("Draw!")
+                score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`
+                divResults.textContent = 'Draw!';
             }
 
             if ((playerScore === 5 && computerScore === 4) || (playerScore === 5 && computerScore === 3) || 
                 (playerScore === 5 && computerScore === 2) || (playerScore === 5 && computerScore === 1) || 
                 (playerScore === 5 && computerScore === 0)) {
 
-                console.log("Player beats Computer!")
+                divResults.textContent = "Player beats Computer!";
                 playerScore = 0;
                 computerScore = 0;
 
@@ -90,7 +94,7 @@
                 (computerScore === 5 && playerScore === 2 || (computerScore === 5 && playerScore === 1) || 
                 (computerScore === 5 && playerScore === 0))) {
 
-                console.log("Computer beats Player!")
+                divResults.textContent = "Computer beats Player!";
                 playerScore = 0;
                 computerScore = 0;
 
