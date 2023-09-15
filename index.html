@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,4 +23,90 @@
         </div>
         
     </body>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let playerScore = 0;
+        let computerScore = 0;
+        let winner
+        function getComputerChoice() {
+            let computerChoice = Math.random();
+            let result
+            if (computerChoice < 0.3) {
+                result = "Rock"
+                return result;
+            } else if (computerChoice > 0.3 && computerChoice < 0.6) {
+                result = "Paper"
+                return result;
+            } else if (computerChoice > 0.6 && computerChoice < 1) {
+                result = "Scissors"
+                return result;
+            }
+        }
+
+        function playRound(playerSelection, computerSelection) {
+            let player = playerSelection;
+            let stringFirstLetter = playerSelection.charAt(0)
+            let stringSlice = playerSelection.slice(1)
+            let stringUpperCase = stringFirstLetter.toUpperCase()
+            let stringLowerCase = stringSlice.toLowerCase()
+            let playerResult = stringUpperCase + stringLowerCase
+            let finalResult = playerResult + " " + computerSelection
+            // First word is the player Choice, second one is computer choice
+            if (finalResult === "Rock Scissors") {
+                winner = "You win! Rock beats Scissors";
+                return winner;  
+            } else if (finalResult === "Scissors Rock") {
+                winner = "You lose! Rock beats Scissors";
+                return winner;;
+            } else if (finalResult === "Rock Paper") {
+                winner = "You lose! Paper beats Rock";
+                return winner;
+            } else if (finalResult === "Paper Rock") {
+                winner = "You win! Paper beats Rock"
+                return winner;
+            } else if (finalResult === "Scissors Paper") {
+                winner = "You win! Scissors beats Paper";
+                return winner;  
+            } else if (finalResult === "Paper Scissors") {
+                winner = "You lose! Scissors beats Paper"
+                return winner;
+            } else {
+                winner = "Draw";
+                return winner;
+            }
+        }
+
+        function game(roundWinner) {
+            if (roundWinner === "You win! Rock beats Scissors" || roundWinner === "You win! Scissors beats Paper" || roundWinner === "You win! Paper beats Rock") {
+                playerScore = playerScore + 1;
+                console.log(winner)
+                console.log(playerScore, computerScore)
+            } else if (roundWinner === "You lose! Rock beats Scissors" || roundWinner === "You lose! Paper beats Rock" || roundWinner === "You lose! Scissors beats Paper") {
+                computerScore = computerScore + 1;
+                console.log(winner)
+                console.log(playerScore, computerScore)
+            } else if (roundWinner === "Draw") {
+                console.log("Draw!")
+            }
+
+            if ((playerScore === 5 && computerScore === 4) || (playerScore === 5 && computerScore === 3) || (playerScore === 5 && computerScore === 2) || (playerScore === 5 && computerScore === 1) || (playerScore === 5 && computerScore === 0)) {
+                console.log("Player beats Computer!")
+                playerScore = 0;
+                computerScore = 0;
+            } else if ((computerScore === 5 && playerScore === 4) || (computerScore === 5 && playerScore === 3) || (computerScore === 5 && playerScore === 2 || (computerScore === 5 && playerScore === 1) || (computerScore === 5 && playerScore === 0))) {
+                console.log("Computer beats Player!")
+                playerScore = 0;
+                computerScore = 0;
+            }
+        }
+        game(playRound(prompt(), getComputerChoice()))
+    </script>
+</body>
+>>>>>>> 8070061bb9c0bec1601285c5f3c93d1843da9b99
 </html>
